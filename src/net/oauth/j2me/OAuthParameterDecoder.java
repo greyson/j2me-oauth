@@ -15,35 +15,13 @@
  */
 
 package net.oauth.j2me;
-/*
-import java.lang.StringBuilder;
-import java.net.URLDecoder;
-import java.util.regex.Pattern;
-import java.util.regex.Matcher;
-*/
-public class OAuthParameterDecoder {
-    private String unreservedCharactersPattern = "[a-zA-Z0-9\\-\\._~]";
-    private String unreservedCharacters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-._~";
-    private String escapeSequence = "%\\d\\d";
 
+public class OAuthParameterDecoder {
     public OAuthParameterDecoder() {
     }
 
     public String decode(String s) {
-        //StringBuilder sb = new StringBuilder();
         String decoded = new String(s);
-  /*      Pattern p = Pattern.compile(escapeSequence);
-        Matcher m = p.matcher(decoded);
-
-        while (m.find()) {
-            String escapedChar = decoded.substring(m.start(), m.end());
-            try {
-                m.replaceAll(URLDecoder.decode(escapedChar, "UTF-8"));
-            } catch (java.io.UnsupportedEncodingException e) {
-                ;
-            }
-        }
-*/
         return decoded;
     }
 }

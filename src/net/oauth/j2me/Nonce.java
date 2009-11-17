@@ -20,7 +20,6 @@ import java.util.Random;
 
 public class Nonce {
     private Random random;
-    private byte[] randomBytes;
     private String nonce;
 
     public Nonce() {

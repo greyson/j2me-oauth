@@ -16,9 +16,6 @@
 
 package net.oauth.j2me.signature;
 
-import net.oauth.j2me.OAuthParameterEncoder;
-import net.oauth.j2me.OAuthParameterDecoder;
-
 import net.oauth.j2me.Util;
 import net.rim.device.api.crypto.HMAC;
 import net.rim.device.api.crypto.HMACKey;
