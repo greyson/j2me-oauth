@@ -318,20 +318,24 @@ public class Util {
         return respBody;
     }
     
-    private static char[]  map1  = new char[64];
-    static {
+    private static char[]  map1  = create_map1();
+    private static char[] create_map1() {
+        char[] _map1 = new char[64];
+       
         int  i  = 0;
         for ( char c = 'A'; c <= 'Z'; c++ ) {
-            map1[i++] = c;
+            _map1[i++] = c;
         }
         for ( char c = 'a'; c <= 'z'; c++ ) {
-            map1[i++] = c;
+            _map1[i++] = c;
         }
         for ( char c = '0'; c <= '9'; c++ ) {
-            map1[i++] = c;
+            _map1[i++] = c;
         }
-        map1[i++] = '+';
-        map1[i++] = '/';
+        _map1[i++] = '+';
+        _map1[i++] = '/';
+        
+        return _map1;
     }
     
     public static final String base64Encode( byte[] in ) {
