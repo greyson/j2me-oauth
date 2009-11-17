@@ -16,17 +16,13 @@
 
 package net.oauth.j2me.signature;
 
-// TODO -- note about how to get bouncycastle stuff
-import org.bouncycastle.crypto.Mac;
-import org.bouncycastle.crypto.macs.HMac;
-import org.bouncycastle.crypto.digests.SHA1Digest;
-import org.bouncycastle.crypto.params.KeyParameter;
-//import javax.crypto.spec.SecretKeySpec;
-
 import net.oauth.j2me.OAuthParameterEncoder;
 import net.oauth.j2me.OAuthParameterDecoder;
 
 import net.oauth.j2me.Util;
+import net.rim.device.api.crypto.HMAC;
+import net.rim.device.api.crypto.HMACKey;
+import net.rim.device.api.crypto.SHA1Digest;
 
 public class HMACSHA1Signature implements OAuthSignature {
     private String method;
@@ -62,17 +58,14 @@ public class HMACSHA1Signature implements OAuthSignature {
 
     public String getSignature() {
         try {
-            HMac m=new HMac(new SHA1Digest());
-            m.init(new KeyParameter(key.getBytes("UTF-8")));
+            HMAC m = new HMAC( new HMACKey( key.getBytes( "UTF-8" ) ), new SHA1Digest() );
             byte[] bytes=message.getBytes("UTF-8");
             m.update(bytes, 0, bytes.length);
-            byte[] mac = new byte[m.getMacSize()];
-            m.doFinal(mac, 0);
+            byte[] mac = new byte[m.getLength()];
+            m.getMAC( mac, 0 );
             signature = new String(Util.base64Encode(mac));
             
             // debug
-            System.out.println("mac alg: "+m.getAlgorithmName());
-            System.out.println("dig alg: "+m.getUnderlyingDigest().getAlgorithmName());
             System.out.println("key: "+key);
             System.out.println("message: "+message);
             System.out.println("unencoded: "+new String(mac));
