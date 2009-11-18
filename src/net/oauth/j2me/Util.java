@@ -273,7 +273,7 @@ public class Util {
     }
 
     public static final String getViaHttpsConnection(String url) throws IOException, OAuthServiceProviderException {
-        HttpsConnection c = null;
+        HttpConnection c = null;
         int rc;
         String respBody = new String(""); // return empty string on bad things
         // TODO -- better way to handle unexpected responses
@@ -286,7 +286,7 @@ public class Util {
         
         try {
             System.out.println("UTIL -- opening connection");
-            c= (HttpsConnection) Connector.open(url, Connector.READ);
+            c= (HttpConnection) Connector.open(url, Connector.READ);
             c.setRequestMethod(HttpConnection.GET);
             c.setRequestProperty("User-Agent", "Profile/MIDP-2.0 Configuration/CLDC-1.0");
             c.setRequestProperty("Cache-Control", "no-store");
