@@ -18,7 +18,9 @@ package net.oauth.j2me.token;
 
 import java.util.Hashtable;
 
-public class AccessToken implements Token {
+import net.rim.device.api.util.Persistable;
+
+public class AccessToken implements Token, Persistable {
     private String token;
     private String secret;
     private Hashtable additionalParams;
