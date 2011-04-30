@@ -7,7 +7,7 @@ acceleration for its built-in API.
 
 For a instructions on how to use this library to implement automatic OAuth, 
 which includes a mostly-automated browser field visit
-http://www.dxysolutions.com/_blog/2010/07/15/using-dxybrowserfield-to-implement-interactive-oauth-on-the-blackberry/
+http://www.dxysolutions.com/#/does/using-interactive-oauth-on-the-blackberry
 This can save users from having to input the token on their return to the
 application.
 
